@@ -60,7 +60,6 @@ function CreateArea(props) {
         <Zoom in={focusOnTextArea}>
           <Fab onClick={submitNote}><AddIcon /></Fab>
         </Zoom>
-
       </form>
     </div>
   );

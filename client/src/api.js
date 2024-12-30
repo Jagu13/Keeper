@@ -10,7 +10,13 @@ export const getNotes = async () => {
 
 // Dodawanie notatki
 export const addNote = async (note) => {
-    const response = await axios.post(API_URL, { note });
+    console.log("To jest treść notatki: ", note);
+
+    const response = await axios.post(API_URL, {
+        title: note.title,
+        content: note.content
+    });
+    console.log(response.data);
     return response.data;
 };
 

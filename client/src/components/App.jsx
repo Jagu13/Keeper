@@ -24,10 +24,11 @@ function App() {
   // Dodaj notatkę do backendu i zaktualizuj stan
   async function addNoteHandler(newNote) {
     try {
-      const savedNote = await addNote(newNote); // Zapisz notatkę w backendzie
-      setNotes((prevNotes) => [...prevNotes, savedNote]); // Dodaj ją do stanu
+      const savedNote = await addNote(newNote);
+      console.log(newNote);
+      setNotes((prevNotes) => [...prevNotes, savedNote]);
     } catch (error) {
-      console.error("Error adding note:", error);
+      console.error("Nie udało się użyć addNoteHandler", error);
     }
   }
 

@@ -2,8 +2,6 @@ const express = require('express');
 const router = express.Router();
 const pool = require('../db');
 
-
-
 // Pobieranie notatek
 router.get('/', async (req, res) => {
     try {
@@ -19,6 +17,7 @@ router.get('/', async (req, res) => {
 router.post('/', async (req, res) => {
     try {
         const { title, content } = req.body;
+        console.log("Notatka: ", { title, content });
         if (!title || !content) {
             return res.status(400).json({ error: 'Title and content are required' });
         }
@@ -29,7 +28,7 @@ router.post('/', async (req, res) => {
         );
         res.json(result.rows[0]);
     } catch (err) {
-        console.error(err.message);
+        console.error("Błąd w post w router: ", err.message);
         res.status(500).send('Server error');
     }
 });
